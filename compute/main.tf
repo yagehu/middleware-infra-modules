@@ -4,31 +4,20 @@ terraform {
   }
 }
 
-module "key_pair" {
-  source                = "git::https://github.com/cloudposse/terraform-aws-key-pair.git?ref=0.11.0"
+module "instance_group" {
+  source                = "git::https://github.com/cloudposse/terraform-aws-ec2-instance-group.git?ref=0.4.0"
   namespace             = var.namespace
   stage                 = var.stage
   name                  = var.name
-  ssh_public_key_path   = var.ssh_public_key_path
-  generate_ssh_key      = var.generate_ssh_key
-  private_key_extension = ".pem"
-  public_key_extension  = ".pub"
-}
-
-module "instance_group" {
-  source          = "git::https://github.com/cloudposse/terraform-aws-ec2-instance-group.git?ref=0.4.0"
-  namespace       = var.namespace
-  stage           = var.stage
-  name            = var.name
-  region          = var.region
-  ami             = var.ami
-  ami_owner       = var.ami_owner
-  ssh_key_pair    = module.key_pair.key_name
-  instance_type   = var.instance_type
-  vpc_id          = var.vpc_id
-  security_groups = [aws_security_group.compute.id]
-  subnet          = var.subnet
-  instance_count  = 3
+  region                = var.region
+  ami                   = var.ami
+  ami_owner             = var.ami_owner
+  generate_ssh_key_pair = var.generate_ssh_key
+  instance_type         = var.instance_type
+  vpc_id                = var.vpc_id
+  security_groups       = [aws_security_group.compute.id]
+  subnet                = var.subnet
+  instance_count        = 3
 }
 
 resource "aws_security_group" "compute" {

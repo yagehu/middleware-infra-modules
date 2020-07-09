@@ -18,11 +18,6 @@ variable "region" {
   type        = string
 }
 
-variable "ssh_public_key_path" {
-  description = "Path to the SSH public key directory (e.g. `/secrets/)"
-  type        = string
-}
-
 variable "generate_ssh_key" {
   description = "If set to `true`, new SSH key pair will be created."
   type        = bool
