@@ -20,6 +20,7 @@ module "instance_group" {
   namespace       = var.namespace
   stage           = var.stage
   name            = var.name
+  region          = var.region
   ami             = var.ami
   ami_owner       = var.ami_owner
   ssh_key_pair    = module.key_pair.key_name

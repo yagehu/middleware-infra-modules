@@ -13,6 +13,11 @@ variable "name" {
   type        = string
 }
 
+variable "region" {
+  description = "Region."
+  type        = string
+}
+
 variable "ssh_public_key_path" {
   description = "Path to the SSH public key directory (e.g. `/secrets/)"
   type        = string
