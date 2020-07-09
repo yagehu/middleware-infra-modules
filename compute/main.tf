@@ -16,7 +16,7 @@ module "key_pair" {
 }
 
 module "instance_group" {
-  source          = "git::https://github.com/cloudposse/terraform-aws-ec2-instance-group.git?ref=master"
+  source          = "git::https://github.com/cloudposse/terraform-aws-ec2-instance-group.git?ref=0.4.0"
   namespace       = var.namespace
   stage           = var.stage
   name            = var.name
