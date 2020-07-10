@@ -21,7 +21,7 @@ variable "attributes" {
 
 variable "tags" {
   description = "Additional tags (e.g. map('BusinessUnit`,`XYZ`)"
-  type        = map(string, string)
+  type        = map(string)
   default     = {}
 }
 
