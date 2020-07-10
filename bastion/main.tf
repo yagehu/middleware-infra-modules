@@ -12,10 +12,7 @@ resource "aws_instance" "this" {
   ami           = var.ami
   instance_type = var.instance_type
 
-  vpc_security_group_ids = [
-    compact(concat(list(aws_security_group.this.id), var.security_groups)),
-  ]
-
+  vpc_security_group_ids      = compact(concat(list(aws_security_group.this.id), var.security_groups))
   iam_instance_profile        = aws_iam_instance_profile.this.name
   associate_public_ip_address = "true"
   key_name                    = var.key_name
