@@ -13,6 +13,7 @@ module "instance_group" {
   ami                   = var.ami
   ami_owner             = var.ami_owner
   generate_ssh_key_pair = var.generate_ssh_key
+  ssh_key_pair_path     = var.ssh_key_pair_path
   instance_type         = var.instance_type
   vpc_id                = var.vpc_id
   security_groups       = [aws_security_group.compute.id]

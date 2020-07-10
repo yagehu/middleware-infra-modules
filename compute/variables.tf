@@ -23,6 +23,11 @@ variable "generate_ssh_key" {
   type        = bool
 }
 
+variable "ssh_key_pair_path" {
+  description = "Path to where the generated key pairs will be created."
+  type        = string
+}
+
 variable "vpc_id" {
   description = "ID of the VPC."
   type        = string
