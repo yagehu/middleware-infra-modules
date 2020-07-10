@@ -69,6 +69,12 @@ resource "aws_security_group" "this" {
     security_groups = var.security_groups
   }
 
+  egress {
+    protocol  = "-1"
+    from_port = 0
+    to_port   = 0
+  }
+
   lifecycle {
     create_before_destroy = true
   }
